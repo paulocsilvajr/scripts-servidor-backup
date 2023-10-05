@@ -4,6 +4,7 @@ BASE=$(dirname $0)
 source "$BASE/log.sh"
 
 criar_pasta_log
+LOGNAME=$(log_name ferramentas-diversas)
 
 function instalar-ferramenteas {
     apty="sudo apt install -y"
@@ -25,6 +26,6 @@ function ativar-ufw() {
     sudo ufw enable
 }
 
-instalar-ferramenteas | tee -a $(log_name)
-permissao-docker | tee -a $(log_name)
-ativar-ufw | tee -a $(log_name)
+instalar-ferramenteas | tee -a $LOGNAME
+permissao-docker | tee -a $LOGNAME
+ativar-ufw | tee -a $LOGNAME

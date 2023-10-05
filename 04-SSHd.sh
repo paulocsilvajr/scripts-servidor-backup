@@ -1,7 +1,9 @@
-!#/bin/bash
+#!/bin/bash
 
 BASE=$(dirname $0)
 source "$BASE/log.sh"
+
+LOGNAME=$(log_name SSHd)
 
 criar_pasta_log
 
@@ -31,14 +33,14 @@ function configurar-sshd {
     sudo systemctl restart sshd.service
 
     echo -e "\nAdicionar excessão para SSH em UFW"
-    sudo ufw allor ssh
+    sudo ufw allow ssh
 }
 
-if [[ $# -eq 0 ]] then
-    echo "Informe como parâmetro uma senha para o usuário 'ti'" | log $0
+if [[ $# -eq 0 ]]; then
+    echo "Informe como parâmetro uma senha para o usuário 'ti'" | tee -a $LOGNAME
     exit 1
 fi
 
-instalar-sshd | tee -a $(log_name)
-configurar-sshd $1 | tee -a $(log_name)
+instalar-sshd | tee -a $LOGNAME
+configurar-sshd $1 | tee -a $LOGNAME
      

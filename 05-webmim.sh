@@ -3,6 +3,8 @@
 BASE=$(dirname $0)
 source "$BASE/log.sh"
 
+LOGNAME=$(log_name webmim)
+
 criar_pasta_log
 
 function instalar-webmim { 
@@ -19,7 +21,7 @@ function abre_porta_ufw {
     sudo ufw allow 10000
 }
 
-instalar-webmim | tee -a $(log_name)
-abre_porta_ufw | tee -a $(log_name)
+instalar-webmim | tee -a $LOGNAME
+abre_porta_ufw | tee -a $LOGNAME
 
 rm -v $BASE/setup-repos.sh

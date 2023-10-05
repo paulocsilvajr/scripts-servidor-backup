@@ -1,13 +1,17 @@
-#!/usr/bin/env bash
-# fonte: https://stackoverflow.com/questions/6980090/how-to-read-from-a-file-or-standard-input-in-bash
+#!/bin/bash
 
-function log() {
-    BASELOG=$(dirname $0)
-    LOGFILE="${BASELOG}/scripts-servidor-esus.log"
+BASE=$(dirname $0)
 
-    while read line
-    do
-        DATACOMPLETA=$(date "+%Y%m%d %H%M%S")
-        echo "${DATACOMPLETA} ${1}: ${line}" | tee -a $LOGFILE
-    done < "${2:-/dev/stdin}"
+function criar_pasta_log {
+    if [ ! -d $BASE/log ]; then
+        mkdir $BASE/log
+    else
+        echo -e "\nA log já existe!"
+    fi
+}
+
+function log_name {
+    DATACOMPLETA=$(date "+%Y%m%d")
+    LOGFILE=${BASE}/log/${DATACOMPLETA}_scripts.log
+    echo $LOGFILE
 }

@@ -3,6 +3,8 @@
 BASE=$(dirname $0)
 source "$BASE/log.sh"
 
+criar_pasta_log
+
 function instalar-requisitos-vim{
     sudo apt install -y vim
 }
@@ -12,5 +14,5 @@ function instalar-ultimate-vimrc {
     sh ~/.vim_runtime/install_awesome_vimrc.sh
 }
 
-instalar-requisitos-vim | log $0
-instalar-ultimate-vimrc | log $0
+instalar-requisitos-vim | tee -a $(log_name)
+instalar-ultimate-vimrc | tee -a $(log_name)

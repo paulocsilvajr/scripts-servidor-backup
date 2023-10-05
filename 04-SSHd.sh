@@ -3,6 +3,8 @@
 BASE=$(dirname $0)
 source "$BASE/log.sh"
 
+criar_pasta_log
+
 function instalar-sshd {
     sudo apt install -y openssh-server
 }
@@ -37,6 +39,6 @@ if [[ $# -eq 0 ]] then
     exit 1
 fi
 
-instalar-sshd | log $0
-
+instalar-sshd | tee -a $(log_name)
+configurar-sshd $1 | tee -a $(log_name)
      

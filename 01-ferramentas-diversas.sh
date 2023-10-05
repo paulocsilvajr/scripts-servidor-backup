@@ -6,7 +6,7 @@ source "$BASE/log.sh"
 criar_pasta_log
 LOGNAME=$(log_name ferramentas-diversas)
 
-function instalar-ferramenteas {
+function instalar-ferramentas {
     apty="sudo apt install -y"
     $apty git curl wget
     $apty lnav htop nmon nmap tree tuptime tmux iftop neofetch
@@ -16,6 +16,9 @@ function instalar-ferramenteas {
     $apty preload
     $apty python3-pip
     $apty gdebi
+
+    $apty speedtest-cli
+    $apty gufw
 }
 
 function permissao-docker {
@@ -26,6 +29,6 @@ function ativar-ufw() {
     sudo ufw enable
 }
 
-instalar-ferramenteas | tee -a $LOGNAME
+instalar-ferramentas | tee -a $LOGNAME
 permissao-docker | tee -a $LOGNAME
 ativar-ufw | tee -a $LOGNAME

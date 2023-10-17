@@ -5,7 +5,6 @@ source="$BASE/log.sh"
 
 LOGNAME=$(log_name gogs-up)
 
-LOGFOLDER="data-gogs"
 
 function gogs-up {
 
@@ -15,10 +14,6 @@ function gogs-up {
 
 }
 
-if [ ! -d $BASE/$LOGFOLDER ]; then
-    mkdir $BASE/$LOGFOLDER
-else
-    echo "Pasta $LOGFOLDER já existe" | tee -a $LOGNAME
-fi 
+criar_pasta_log
 
 gogs-up | tee -a $LOGNAME

@@ -5,8 +5,6 @@ source="$BASE/log.sh"
 
 LOGNAME=$(log_name portainer)
 
-LOGFOLDER="data-portainer"
-
 function portainer-up {
 
     #Fonte: https://www.cloudsavvyit.com/8911/how-to-get-started-with-portainer-a-web-ui-for-docker/
@@ -18,11 +16,6 @@ function portainer-up {
     echo "Para testar o container use http://localhost:9000"
 }
 
-
-if [ ! -d $BASE/$LOGFOLDER ]; then
-    mkdir $BASE/$LOGFOLDER
-else
-    echo "Pasta $LOGFOLDER já existe" | tee -a $LOGNAME
-fi 
+criar_pasta_log
 
 portainer-up | tee -a $LOGNAME

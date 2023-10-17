@@ -5,8 +5,6 @@ source="$BASE/log.sh"
 
 LOGNAME=$(log_name uptime-up)
 
-LOGFOLDER="data-uptime"
-
 function uptime-up {
 
 
@@ -15,10 +13,6 @@ function uptime-up {
 
 }
 
-if [ ! -d $BASE/$LOGFOLDER ]; then
-    mkdir $BASE/$LOGFOLDER
-else
-    echo "Pasta $LOGFOLDER já existe" | tee -a $LOGNAME
-fi 
+criar_pasta_log
 
 uptime-up | tee -a $LOGNAME

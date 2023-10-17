@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  nextcloud-btrfs-db:
+    image: mariadb:10.5
+    container_name: nextcloud-btrfs-container-db
+    command: --transaction-isolation=READ-COMMITTED --log-bin=binlog --binlog-format=ROW
+    volumes:
+      - ./data/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=MSr@175937592
+      - MYSQL_PASSWORD=NC@17539943
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+
+  nextcloud-btrfs-app:
+    image: nextcloud:latest
+    container_name: nextcloud-btrfs-container-app
+    links:
+      - nextcloud-btrfs-db
+    volumes:
+      - ./data/nextcloud:/var/www/html
+    environment:
+      - MYSQL_PASSWORD=NC@17539943
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - MYSQL_HOST=nextcloud-btrfs-db
+
+  nextcloud-btrfs-proxy:
+    image: nginx:latest
+    container_name: nextcloud-btrfs-container-proxy
+    ports:
+      - 8083:443
+    depends_on:
+      - nextcloud-btrfs-db
+      - nextcloud-btrfs-app
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d

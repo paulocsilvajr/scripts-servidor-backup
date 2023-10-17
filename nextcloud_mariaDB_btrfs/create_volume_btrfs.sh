@@ -24,6 +24,9 @@ function create_volume_btrfs {
     fi
 }
 
-criar_pasta_log
+echo $(data_hora) | tee -a $LOGNAME
 
+criar_pasta_log
 create_volume_btrfs | tee -a $LOGNAME
+
+echo -e $(data_hora)"\n" | tee -a $LOGNAME

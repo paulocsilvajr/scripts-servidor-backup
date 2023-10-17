@@ -13,6 +13,9 @@ function down {
         echo "Ocorreu um erro ao executar o script down.sh" 
 }
 
-criar_pasta_log
+echo $(data_hora) | tee - a $LOGNAME
 
+criar_pasta_log
 down | tee -a $LOGNAME
+
+echo -e $(data_hora)"\n" | tee -a $LOGNAME

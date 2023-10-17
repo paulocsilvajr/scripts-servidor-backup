@@ -29,6 +29,11 @@ function ativar-ufw() {
     sudo ufw enable
 }
 
+
+echo $(data_hora) | tee -a $LOGNAME
+
 instalar-ferramentas | tee -a $LOGNAME
 permissao-docker | tee -a $LOGNAME
 ativar-ufw | tee -a $LOGNAME
+
+acho -e $(data_hora)"\n" | tee -a $LOGNAME

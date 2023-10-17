@@ -14,5 +14,10 @@ function instalar-oh-my-zsh {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 }
 
+
+echo $(data_hora) | tee -a $LOGNAME
+
 instalar-requisitos-zsh | tee -a $LOGNAME
 instalar-oh-my-zsh | tee -a $LOGNAME
+
+echo -e $(data_hora) | tee -a $LOGNAME

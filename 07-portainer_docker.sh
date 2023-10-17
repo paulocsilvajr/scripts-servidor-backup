@@ -23,5 +23,9 @@ function abre_porta_ufw {
 
 criar_pasta_log
 
+echo $(data_hora) | tee -a $LOGNAME
+
 abre_porta_ufw | tee -a $LOGNAME
 portainer-up | tee -a $LOGNAME
+
+echo -e $(data_hora)"\n" | tee -a $LOGNAME

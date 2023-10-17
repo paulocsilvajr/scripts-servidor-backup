@@ -17,6 +17,9 @@ function up {
     fi
 }
 
-criar_pasta_log
+echo $(data_hora) | tee -a $LOGNAME
 
+criar_pasta_log
 up | tee -a $LOGNAME
+
+echo -a $(data_hora)"\n" | tee -a $LOGNAME

@@ -22,7 +22,12 @@ function abre_porta_ufw {
     sudo ufw allow 10000
 }
 
+
+echo $(data_hora) | tee -a $LOGNAME
+
 instalar-webmim | tee -a $LOGNAME
 abre_porta_ufw | tee -a $LOGNAME
 
 rm -v $BASE/setup-repos.sh
+
+echo -e $(data_hora)"\n" | tee -a $LOGNAME

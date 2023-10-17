@@ -15,5 +15,9 @@ function instalar-ultimate-vimrc {
     sh ~/.vim_runtime/install_awesome_vimrc.sh
 }
 
+echo $(data_hora) | tee -a $LOGNAME
+
 instalar-requisitos-vim | tee -a $LOGNAME
 instalar-ultimate-vimrc | tee -a $LOGNAME
+
+echo -e $(data_hora) | tee -a $LOGNAME

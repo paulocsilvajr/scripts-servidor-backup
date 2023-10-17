@@ -21,3 +21,8 @@ function log_name {
     LOGFILE=${BASE}/log/${DATACOMPLETA}_$1.log
     echo $LOGFILE
 }
+
+function data_hora {
+
+    echo $(date --rfc-3339=seconds)
+}

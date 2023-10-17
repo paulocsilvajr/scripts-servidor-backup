@@ -18,6 +18,7 @@ function instalar-webmim {
 }
 
 function abre_porta_ufw {
+    
     sudo ufw allow 10000
 }
 

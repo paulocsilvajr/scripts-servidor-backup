@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BASE=$(dirname $0)
-source="$BASE/log.sh"
+source "$BASE/log.sh"
 
 LOGNAME=$(log_name portainer)
 
@@ -16,6 +16,12 @@ function portainer-up {
     echo "Para testar o container use http://localhost:9000"
 }
 
+function abre_porta_ufw {
+
+    sudo ufw allow 9000
+}
+
 criar_pasta_log
 
+abre_porta_ufw | tee -a $LOGNAME
 portainer-up | tee -a $LOGNAME

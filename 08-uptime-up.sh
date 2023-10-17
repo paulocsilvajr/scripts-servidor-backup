@@ -1,7 +1,7 @@
 #!/bin/bash
 
 BASE=$(dirname $0)
-source="$BASE/log.sh"
+source "$BASE/log.sh"
 
 LOGNAME=$(log_name uptime-up)
 
@@ -13,6 +13,12 @@ function uptime-up {
 
 }
 
+function abre_porta_ufw {
+
+    sudo ufw allow 3001
+}
+
 criar_pasta_log
 
+abre_porta_ufw | tee -a $LOGNAME
 uptime-up | tee -a $LOGNAME

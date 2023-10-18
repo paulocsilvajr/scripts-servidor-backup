@@ -18,11 +18,11 @@ function configurar-sshd {
     echo -e "\nDefinir a senha informada para o usuário 'ti'"
     echo "ti:$1" | sudo chpasswd
 
-    NOVACONFIG="Allowusers ti\nDenyUsers root esus"
+    NOVACONFIG="Allowusers ti\nDenyUsers root $USER"
     CONFIGSSH="/etc/ssh/sshd_config"
     COPIACONFIGSSH="${CONFIGSSH}.original"
 
-    echo -e "\nGerar cópia de arquivo de configuração de SSH($CONFIGSSH), adicionar permissão para usuário 'ti' e remover permissão de usuários 'root' e 'esus', se necessário"
+    echo -e "\nGerar cópia de arquivo de configuração de SSH($CONFIGSSH), adicionar permissão para usuário 'ti' e remover permissão de usuários 'root' e '$USER', se necessário"
     #somente será gerado cópia e adicionado nova configuração se nao foi ainda gerado o backup .original com config original de sshd_config
 
     ! sudo test -f $COPIACONFIGSSH &&

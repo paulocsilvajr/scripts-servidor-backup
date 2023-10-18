@@ -36,4 +36,4 @@ instalar-ferramentas | tee -a $LOGNAME
 permissao-docker | tee -a $LOGNAME
 ativar-ufw | tee -a $LOGNAME
 
-acho -e $(data_hora)"\n" | tee -a $LOGNAME
+echo -e $(data_hora)"\n" | tee -a $LOGNAME

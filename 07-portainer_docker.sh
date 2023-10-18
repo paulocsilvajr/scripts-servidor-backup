@@ -5,7 +5,7 @@ source "$BASE/log.sh"
 
 LOGNAME=$(log_name portainer)
 
-function portainer-up {
+function portainer {
 
     #Fonte: https://www.cloudsavvyit.com/8911/how-to-get-started-with-portainer-a-web-ui-for-docker/
 
@@ -26,6 +26,6 @@ criar_pasta_log
 echo $(data_hora) | tee -a $LOGNAME
 
 abre_porta_ufw | tee -a $LOGNAME
-portainer-up | tee -a $LOGNAME
+portainer | tee -a $LOGNAME
 
 echo -e $(data_hora)"\n" | tee -a $LOGNAME

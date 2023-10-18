@@ -3,10 +3,10 @@
 BASE=$(dirname $0)
 source "$BASE/log.sh"
 
-LOGNAME=$(log_name gogs-up)
+LOGNAME=$(log_name gogs)
 
 
-function gogs-up {
+function gogs {
 
 
     docker-compose -f docker-compose-gogs.yml -p gogs up -d &&
@@ -25,6 +25,6 @@ criar_pasta_log
 echo $(data_hora) | tee -a $LOGNAME
 
 abre_porta_ufw | tee -a $LOGNAME
-gogs-up | tee -a $LOGNAME
+gogs | tee -a $LOGNAME
 
 echo -e $(data_hora)"\n" | tee -a $LOGNAME

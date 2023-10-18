@@ -16,6 +16,7 @@ function instalar-ferramentas {
     $apty preload
     $apty python3-pip
     $apty gdebi
+    $apty p7zip-full p7zip-rar
 
     $apty speedtest-cli
     $apty gufw

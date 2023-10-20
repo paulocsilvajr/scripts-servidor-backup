@@ -1,4 +1,5 @@
-data
+data/
+log/
 volume.img
 nextcloud-btrfs_up.sh
 nextcloud-btrfs_down.sh

@@ -22,4 +22,4 @@ echo $(data_hora) | tee -a $LOGNAME
 criar_pasta_log
 up | tee -a $LOGNAME
 
-echo -a $(data_hora)"\n" | tee -a $LOGNAME
+echo -e $(data_hora)"\n" | tee -a $LOGNAME

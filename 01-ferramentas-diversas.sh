@@ -23,7 +23,8 @@ function instalar-ferramentas {
 }
 
 function permissao-docker {
-    sudo usermod -aG docker $USER
+    sudo usermod -aG docker $USER &&
+        echo "Reinicie o computador para que o grupo Docker seja incluído ao usuário atual"
 }
 
 function ativar-ufw() {

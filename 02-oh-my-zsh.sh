@@ -20,4 +20,4 @@ echo $(data_hora) | tee -a $LOGNAME
 instalar-requisitos-zsh | tee -a $LOGNAME
 instalar-oh-my-zsh | tee -a $LOGNAME
 
-echo -e $(data_hora) | tee -a $LOGNAME
+echo -e $(data_hora)"\n" | tee -a $LOGNAME

@@ -46,4 +46,4 @@ echo $(data_hora) | tee -a $LOGNAME
 instalar-sshd | tee -a $LOGNAME
 configurar-sshd $1 | tee -a $LOGNAME
 
-echo -e $(data_hora) | tee -a $LOGNAME 
+echo -e $(data_hora)"\n" | tee -a $LOGNAME 

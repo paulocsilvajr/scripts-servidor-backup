@@ -9,7 +9,7 @@ function uptime {
 
 
     docker-compose -f docker-compose-uptime.yml -p uptime up -d &&
-    docker-compose -f docker-compose-uptime.yml ps
+        docker-compose -f docker-compose-uptime.yml -p uptime ps
 
 }
 

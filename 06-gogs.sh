@@ -10,7 +10,7 @@ function gogs {
 
 
     docker-compose -f docker-compose-gogs.yml -p gogs up -d &&
-    docker-compose -f docker-compose-gogs.yml ps
+        docker-compose -f docker-compose-gogs.yml -p gogs ps
 
 }
 

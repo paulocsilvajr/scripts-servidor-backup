@@ -22,6 +22,7 @@ function log_name {
     echo $LOGFILE
 }
 
+
 function data_hora {
 
     echo $(date --rfc-3339=seconds)

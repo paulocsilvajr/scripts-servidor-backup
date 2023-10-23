@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  uptimekuma-compose:
+    image: louislam/uptime-kuma:1
+    restart: always
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./data-uptime:/app/data
+    networks:
+      - uptime-networks
+
+networks:
+  uptime-networks:

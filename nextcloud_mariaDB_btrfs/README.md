@@ -5,6 +5,8 @@ Este repositório  cria um conteiner Docker do [NextCloud](htpps://nextcloud.com
 NextCloud disponível em **https://localhost:8083** após sua montagem via docker-compose. Foi 
 configurado o redirecionamento via Proxy Reverso do Nginx para disponibilizar o NextCloud via HTTPS.
 
+***Para usar o sincronizador, baixar o aplicativo na página ofical do [NextCloud](https://nextcloud.com/install/#install-clients), e escolher a versão para seu Sistema Operacional.***
+
 ### Docker-compose para configurar um conteiner NextCloud, com banco de dados MariaDB, volume em arquivo formatado como BTRFS e gerenciado via Systemd. Conteineres configurados no Ubuntu 22.04+
 
 ### Instalação e Configuração do NextCloud
